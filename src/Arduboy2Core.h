@@ -12,8 +12,8 @@
 #include <SPI.h>
 #include "TFT_eSPI.h"
 #include <ESP_EEPROM.h>
-#include "ESPboyInit.h"
 
+#include "lib/ESPboyInit.h"
 
 #include <limits.h>
 
@@ -73,6 +73,10 @@ class Arduboy2Core
     
     static uint8_t foregroundclr;
     static uint8_t backgroundclr;
+    static bool invert_flag;
+    static bool flip_horizontal_flag;
+    static bool flip_vertical_flag;
+    static bool allpixelson_flag;
     
     Arduboy2Core();
 
@@ -258,7 +262,8 @@ class Arduboy2Core
      *
      * \see paint8Pixels()
      */
-    void static paintScreen(const uint8_t *image);
+     
+    void static paintScreen(PGM_VOID_P image);
 
     /** \brief
      * Paints an entire image directly to the display from an array in RAM.
@@ -282,7 +287,7 @@ class Arduboy2Core
      *
      * \see paint8Pixels()
      */
-    void static paintScreen(uint8_t image[], bool clear = false);
+    void static paintScreen(uint8_t *image, bool clear = false);
 
     /** \brief
      * Blank the display screen by setting all pixels off.

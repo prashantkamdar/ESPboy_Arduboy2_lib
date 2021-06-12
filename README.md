@@ -35,10 +35,9 @@ Some of them can use it as a drop-in replacement for the original **"Arduboy2" l
 - you have to put delay(0); in all loops like while(1) {...}. EPS8266 needs time to process WiFi stack and other internal SDK interrupts and can do it during the pauses like delay(0). Otherwise it watchdog resets.
 - games that directly control the SPI or I2C bus to write to OLED display need much more work to port instead of the simple steps above.
 - font() array is used in TFT_eSPI display library so you have to change all "font" to "font_"
-- min() and max() macros are used in TFT_eSPI display library so you have to change all min() and max() to minVal() and maxVal() correspondenly
 - there is a problem with a "char" data (signed/unsigned problem). By default Arduino "char" is signed and ESP "char" is unsigned. So you have to change all "char" to "signed char".
 - it's also better to change all "short" to "int16_t", "unsigned shot" to "uint16_t", "byte" to "uint8_t", "int" to "int16_t", "unsigned int" to "uint16_t", "long" to "int32_t", "unsigned long" to "uint32_t" 
-- in AVR compiler "bool function();" return FALSE in case of function out without "return(value);", but in ESP8266 compiler it returns TRUE
+- in AVR compiler "bool function();" returns FALSE in case of function out without "return(value);", but in ESP8266 compiler it returns TRUE
 
 
 # Advantages of ESPboy (ESP8266)
@@ -78,6 +77,20 @@ Some of them can use it as a drop-in replacement for the original **"Arduboy2" l
 
 If authors against posting the code in this repository for the purpose of learning programming and fun, please let me know, I'll remove it.
 
+
+- **Diamonds** (MIT) by [redbug - Miguel Vanhove](https://community.arduboy.com/t/diamonds-a-breakout-puzzle-game-1st-kyuran-game/3368)
+- **Crates** (MIT) by [jessemillar](https://community.arduboy.com/t/crates-pedal-to-the-metal-car-crime/6744)
+- **CascadePath** (???) by [Chris](https://community.arduboy.com/t/cascade-path-wagon-train/1258) 
+- **AsteroidBelt** (???) by [Xhaku](https://community.arduboy.com/t/asteroid-belt-tower-shooter/5627)
+- **Arduminer** (???) by [Bergasms](https://community.arduboy.com/t/arduminer-terraria-like-game-by-bergasms/2939)
+- **Ardubrain** (???) by [renato-grottesi](https://community.arduboy.com/t/ardubrain-a-brain-trainer/8301)
+- **MayQ** (Proprietary) by [cobinee](http://blog.livedoor.jp/cobinee/archives/1930726.html)
+- **SFZ** (Proprietary) by [cobinee](http://blog.livedoor.jp/cobinee/archives/1910024.html)
+- **Lagunita** (MIT) by [renato-grottesi](https://community.arduboy.com/t/lagunita-a-1d-wild-west-town-builder/8135)
+- **TeenyTank** (MIT) by [Jezzamon](https://community.arduboy.com/t/multiplayer-game-teenytank/585) 
+- **Humanity revenge** (???) by [Giangregorio](https://community.arduboy.com/t/humanity-revenge-a-simple-shoot-em-up/1475)
+- **1nvader** (BSD 3-Clause) by [Press Play on Tape](https://community.arduboy.com/t/1nvader-v1-0/9665)
+- **Bomberman** (???) by [LHW-HWT](https://github.com/createskyblue/Bomberman)
 - **Juno First** (BSD 3-Clause) by [Press Play on Tape](https://community.arduboy.com/t/juno-first-1-01/5554)
 - **Domino** (BSD 3-Clause) by [Press Play on Tape](https://community.arduboy.com/t/domino-all-fives-two-player/8087)
 - **Road Trip** (BSD 3-Clause) by [Press Play on Tape](https://community.arduboy.com/t/road-trip-v1-0/9716)
